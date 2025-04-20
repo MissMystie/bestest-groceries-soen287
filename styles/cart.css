@@ -67,10 +67,10 @@
   .cart-footer {
     margin-left: 0px;
     margin-top: 10px;
-    height:auto;
+    height: auto;
   }
 
   .cart-summary-container {
     flex-direction: column;
-  }  
+  }
 }

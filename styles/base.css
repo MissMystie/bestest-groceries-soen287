@@ -7,7 +7,7 @@
 } */
 
 .banner {
-    background: #fdfdfd;
+  background: #fdfdfd;
 }
 
 .header img {
@@ -15,48 +15,48 @@
 }
 
 .banner__content {
-    padding: 20px;
-    max-width: 500px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
+  padding: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
 }
 
 .banner__text {
-    flex-grow: 1;
-    line-height: 1.4;
-    font-family: "Quicksand", sans-serif;
+  flex-grow: 1;
+  line-height: 1.4;
+  font-family: "Quicksand", sans-serif;
 }
 
 .banner__close {
-    background: none;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 .banner__text,
 .banner__close > span {
-    color: #b20a08;
+  color: #b20a08;
 }
 .header {
-    padding: 30px; /* some padding */
-    text-align: center; /* center the text */
-    background: #b20a08; /* green background */
-    color: white; /* white text color */
+  padding: 30px; /* some padding */
+  text-align: center; /* center the text */
+  background: #b20a08; /* green background */
+  color: white; /* white text color */
 }
 
 /* Increase the font size of the <h1> element */
 .header h1 {
-    font-size: 35px;
+  font-size: 35px;
 }
 .footer {
-    padding: 30px; /* Some padding */
-    text-align: left; /* Center text*/
-    background: var(--bs-gray-100); /* Grey background */
-    color:#b20a08;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+  padding: 30px; /* Some padding */
+  text-align: left; /* Center text*/
+  background: var(--bs-gray-100); /* Grey background */
+  color: #b20a08;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 @media screen and (max-width: 767px) {
@@ -67,30 +67,30 @@
 }
 /* Style the top navigation bar */
 .navbar {
-    overflow: hidden; /* Hide overflow */
-    background-color: #333; /* Dark background color */
-    padding-left: 5%; /* Add some padding */
-    padding-right: 5%; /* Add some padding */
+  overflow: hidden; /* Hide overflow */
+  background-color: #333; /* Dark background color */
+  padding-left: 5%; /* Add some padding */
+  padding-right: 5%; /* Add some padding */
 }
 
 /* Style the navigation bar links */
 .navbar a {
-    float: left; /* Make sure that the links stay side-by-side */
-    display: block; /* Change the display to block, for responsive reasons (see below) */
-    color: white; /* White text color */
-    text-align: center; /* Center the text */
-    padding: 5px; /* Add some padding */
-    text-decoration: none; /* Remove underline */
+  float: left; /* Make sure that the links stay side-by-side */
+  display: block; /* Change the display to block, for responsive reasons (see below) */
+  color: white; /* White text color */
+  text-align: center; /* Center the text */
+  padding: 5px; /* Add some padding */
+  text-decoration: none; /* Remove underline */
 }
 /* Change color on hover/mouse-over */
 .navbar a:hover {
-    background-color: white; /* Grey background color */
-    color: black; /* Black text color */
+  background-color: white; /* Grey background color */
+  color: black; /* Black text color */
 }
 
 /* Ensure proper sizing */
 * {
-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Column container */
@@ -102,17 +102,17 @@ flex-wrap: wrap;
 /* Create two unequal columns that sits next to each other */
 /* Sidebar/left column */
 .side {
-flex: 17%; /* Set the width of the sidebar */
-background-color: #b20a08; /* Grey background color */
-padding: 50px; /* Some padding */
-color: black;
+  flex: 17%; /* Set the width of the sidebar */
+  background-color: #b20a08; /* Grey background color */
+  padding: 50px; /* Some padding */
+  color: black;
 }
 
 /* Main column */
 .main {
-flex: 70%; /* Set the width of the main content */
-background-color: white; /* White background color */
-padding: 50px; /* Some padding */
+  flex: 70%; /* Set the width of the main content */
+  background-color: white; /* White background color */
+  padding: 50px; /* Some padding */
 }
 
 .social {

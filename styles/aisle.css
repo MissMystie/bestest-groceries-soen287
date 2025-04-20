@@ -1,32 +1,32 @@
-.jumbotron{
-    background-color: #943a35;
-    color:white;
+.jumbotron {
+  background-color: #943a35;
+  color: white;
 }
-.tab-content{
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    padding:10px;
+.tab-content {
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  padding: 10px;
 }
-.nav-tabs{
-    margin-bottom: 0;
+.nav-tabs {
+  margin-bottom: 0;
 }
 .sidebar {
-    flex: 0 0 230px;
-    background-color: rgb(247, 247, 247);
-    padding: 30px;
-    margin-right: 10px;
-} 
-.card{
-    width: 250px;
-    padding: 0px;
-    margin: 10px;
-    margin-top: 0px;
-    margin-bottom: 20px;
+  flex: 0 0 230px;
+  background-color: rgb(247, 247, 247);
+  padding: 30px;
+  margin-right: 10px;
 }
-.card-img-top{
-    width: 250px;
-    height: 150px;
-    position: relative;
-    object-fit: cover;
+.card {
+  width: 250px;
+  padding: 0px;
+  margin: 10px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+.card-img-top {
+  width: 250px;
+  height: 150px;
+  position: relative;
+  object-fit: cover;
 }

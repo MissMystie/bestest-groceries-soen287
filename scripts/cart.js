@@ -8,7 +8,7 @@ class Cart {
   }
 
   addProduct(productID, quantity = 1, properties = {}) {
-    let item = this.items.find(item => item.product.productID == productID);
+    let item = this.items.find((item) => item.product.productID == productID);
 
     if (quantity == 1) {
       let quantityInput = document.querySelector("#quantity");
@@ -44,10 +44,12 @@ class Cart {
   }
 
   updateQuantity(productID, quantity) {
-    let item = this.items.find(item => item.product.productID == productID);
+    let item = this.items.find((item) => item.product.productID == productID);
     if (item) {
       if (quantity == 0) {
-        this.items = this.items.filter(item => item.product.productID != productID);
+        this.items = this.items.filter(
+          (item) => item.product.productID != productID
+        );
       } else {
         item.quantity = quantity;
       }
@@ -71,7 +73,7 @@ class Cart {
   }
 
   setItemProperty(productID, key, value = null) {
-    let item = this.items.find(item => item.product.productID == productID);
+    let item = this.items.find((item) => item.product.productID == productID);
     if (item) {
       this.item.setProperty(key, value);
 
@@ -80,12 +82,15 @@ class Cart {
   }
 
   getPrice() {
-    return this.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+    return this.items.reduce(
+      (acc, item) => acc + item.product.price * item.quantity,
+      0
+    );
   }
 
   render() {
     let cartHtml;
-    
+
     if (this.items.length) {
       cartHtml = `
         <thead>
@@ -95,8 +100,8 @@ class Cart {
           <th>Action</th>
         </thead>
         <tbody>
-        ${
-          this.items.map((item, index) => {
+        ${this.items
+          .map((item, index) => {
             let product = item.product;
             return `
               <tr>
@@ -108,41 +113,52 @@ class Cart {
                 </td>
                 <td>
                   <div class="quantity-wrapper">
-                    <input type="hidden" name="product[${index}]" value="${product.productID}">
+                    <input type="hidden" name="product[${index}]" value="${
+              product.productID
+            }">
                     <button onclick="cart.increaseQuantity(${index})">+</button>
-                    <input type="number" name="quantity[${index}]" value="${item.quantity}" size="2" readonly>
+                    <input type="number" name="quantity[${index}]" value="${
+              item.quantity
+            }" size="2" readonly>
                     <button onclick="cart.decreaseQuantity(${index})">-</button>
                   </div>
                 </td>
                 <td>${product.price.toFixed(2)}$</td>
                 <td>
-                  <button name="remove" onclick="cart.removeProduct(${product.productID})" value="1">Remove</button>
+                  <button name="remove" onclick="cart.removeProduct(${
+                    product.productID
+                  })" value="1">Remove</button>
                 </td>
               </tr>
             `;
-          }).join('')
-        }
+          })
+          .join("")}
         </tbody>
       `;
     } else {
       cartHtml = `<tr><td><p>Cart is empty!</p><a href="../index.php">Continue shopping</a></td></tr>`;
     }
 
-    document.querySelectorAll('.js-cart').forEach(cart => cart.innerHTML = cartHtml);
+    document
+      .querySelectorAll(".js-cart")
+      .forEach((cart) => (cart.innerHTML = cartHtml));
   }
 
   renderSummary() {
     let summaryHtml;
-    
+
     if (this.items.length) {
-      let subtotal = this.items.reduce((acc, item) => acc + item.product.price * item.quantity, 0);
+      let subtotal = this.items.reduce(
+        (acc, item) => acc + item.product.price * item.quantity,
+        0
+      );
       let quantity = this.items.reduce((acc, item) => acc + item.quantity, 0);
       let qst = subtotal * 0.09975;
       let gst = subtotal * 0.05;
       let total = subtotal + qst + gst;
 
       summaryHtml = `
-        <div>${quantity} item${(quantity > 1)?"s":""}</div>
+        <div>${quantity} item${quantity > 1 ? "s" : ""}</div>
         <div>Subtotal: ${subtotal.toFixed(2)}$</div>
         <div>QST: ${qst.toFixed(2)}$</div>
         <div>GST: ${gst.toFixed(2)}$</div>
@@ -153,7 +169,9 @@ class Cart {
       summaryHtml = ``;
     }
 
-    document.querySelectorAll('.js-cart-summary').forEach(cart => cart.innerHTML = summaryHtml);
+    document
+      .querySelectorAll(".js-cart-summary")
+      .forEach((cart) => (cart.innerHTML = summaryHtml));
   }
 
   clear() {
@@ -170,7 +188,7 @@ class Cart {
   }
 
   storeCart() {
-    localStorage.setItem('cart', JSON.stringify(this));
+    localStorage.setItem("cart", JSON.stringify(this));
   }
 }
 
@@ -208,7 +226,13 @@ class Product {
   description;
   image;
 
-  constructor(productID, name, price, description = "", image = "/images/products/banana.jpg") {
+  constructor(
+    productID,
+    name,
+    price,
+    description = "",
+    image = "/images/products/banana.jpg"
+  ) {
     this.productID = productID;
     this.name = name;
     this.price = price;
@@ -221,12 +245,18 @@ function loadProducts() {
   window.products = {};
 
   fetch("/all-products.json")
-    .then(data => data.json())
-    .then(response => {
+    .then((data) => data.json())
+    .then((response) => {
       console.log(response);
 
-      response.forEach(element => {
-        window.products[element.id] = new Product(element.id, element.name, element.price, element.description, element.image);
+      response.forEach((element) => {
+        window.products[element.id] = new Product(
+          element.id,
+          element.name,
+          element.price,
+          element.description,
+          element.image
+        );
       });
     });
 }
@@ -234,11 +264,14 @@ function loadProducts() {
 function loadCart() {
   console.log("loading cart");
 
-  const storedCart = localStorage.getItem('cart');
+  const storedCart = localStorage.getItem("cart");
   if (storedCart) {
     let cartData = JSON.parse(storedCart);
 
-    window.cart = new Cart(cartData.items, cartData.properties?storedCart.properties:{});
+    window.cart = new Cart(
+      cartData.items,
+      cartData.properties ? storedCart.properties : {}
+    );
   } else {
     window.cart = new Cart();
   }
