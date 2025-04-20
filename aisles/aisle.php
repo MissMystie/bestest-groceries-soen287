@@ -137,7 +137,7 @@
         <p>Email: TheBestestWebstore@gmail.com</p>
         <p>Twitter: @TheBestest</p>
         <p>Facebook: @TheBestestCa</p>
-        <p>Page by Salah</p>
+        <p>Page by Sarah</p>
       </div>
       <div class="social">
         <a href="https://www.facebook.com" class="fa fa-facebook"></a>
